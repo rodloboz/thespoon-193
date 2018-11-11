@@ -1,0 +1,26 @@
+<h1>The Spoon</h1>
+<p>Hello from home</p>
+
+<p>The time now is: <%= Time.now %></p>
+
+<% categories = [ 'japanese', 'indian', 'french' ] %>
+
+<p>We have these types of restaurants:</p>
+
+<ul>
+  <% categories.each do |category| %>
+    <li><%= category.capitalize %></li>
+  <% end %>
+</ul>
+
+<form action="/restaurants" method="get">
+  <input type="text" name="category" placeholder="What kind of food?">
+  <input type="submit">
+</form>
+
+<form action="/restaurants" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input type="text" name="name" placeholder="Name">
+  <input type="text" name="address" placeholder="Address">
+  <input type="submit">
+</form>
